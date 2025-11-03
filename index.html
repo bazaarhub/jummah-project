@@ -1,0 +1,1331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jummah Mubarak Wishes Generator</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400;1,700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --deep-blue: #0a1931;
+            --royal-blue: #1a3a5f;
+            --gold: #d4af37;
+            --light-gold: #f4e4a6;
+            --cream: #f8f6f0;
+            --white: #ffffff;
+            --shadow: rgba(0, 0, 0, 0.25);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, var(--deep-blue), var(--royal-blue));
+            color: var(--white);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            overflow-x: hidden;
+            position: relative;
+        }
+        /* Unique Background Pattern */
+        .background-pattern {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(212, 175, 55, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(212, 175, 55, 0.08) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, rgba(26, 58, 95, 0.15) 0%, transparent 50%);
+            opacity: 0.7;
+        }
+
+        /* Animated Background Elements */
+        .floating-elements {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .floating-element {
+            position: absolute;
+            background: rgba(212, 175, 55, 0.15);
+            border-radius: 50%;
+            animation: float 20s infinite linear;
+            opacity: 0.7;
+        }
+
+        .floating-element:nth-child(2n) {
+            background: rgba(248, 246, 240, 0.1);
+            animation-duration: 25s;
+            animation-direction: reverse;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0) translateX(0) rotate(0deg) scale(1); }
+            25% { transform: translateY(-40px) translateX(30px) rotate(90deg) scale(1.1); }
+            50% { transform: translateY(20px) translateX(-30px) rotate(180deg) scale(0.9); }
+            75% { transform: translateY(-20px) translateX(20px) rotate(270deg) scale(1.05); }
+            100% { transform: translateY(0) translateX(0) rotate(360deg) scale(1); }
+        }
+
+        /* Container */
+        .container {
+            max-width: 900px;
+            width: 100%;
+            text-align: center;
+            animation: fadeIn 1.5s ease;
+        }
+
+        /* Header with Unique Design */
+        .header {
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .logo-container {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 20px;
+        }
+
+        .logo {
+            font-size: 4rem;
+            color: var(--gold);
+            text-shadow: 0 0 20px rgba(212, 175, 55, 0.7);
+            animation: logoGlow 3s infinite alternate;
+            position: relative;
+            z-index: 2;
+        }
+
+        .logo-backdrop {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 120px;
+            height: 120px;
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.2) 0%, transparent 70%);
+            border-radius: 50%;
+            z-index: 1;
+        }
+
+        @keyframes logoGlow {
+            0% { text-shadow: 0 0 10px rgba(212, 175, 55, 0.5); }
+            100% { text-shadow: 0 0 25px rgba(212, 175, 55, 0.9), 0 0 35px rgba(212, 175, 55, 0.6); }
+        }
+
+        h1 {
+            font-family: 'Amiri', serif;
+            font-size: 3.5rem;
+            color: var(--light-gold);
+            text-shadow: 0 0 15px rgba(212, 175, 55, 0.7);
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+
+        h1::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 10%;
+            width: 80%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+        }
+
+        .subtitle {
+            font-size: 1.3rem;
+            opacity: 0.9;
+            margin-bottom: 10px;
+            color: var(--cream);
+            font-weight: 300;
+            letter-spacing: 0.5px;
+        }
+
+        /* Name Input Section */
+        .name-input-container {
+            background: rgba(26, 58, 95, 0.7);
+            backdrop-filter: blur(15px);
+            border-radius: 20px;
+            padding: 35px;
+            margin-bottom: 40px;
+            box-shadow: 0 15px 35px var(--shadow);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .name-input-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+        }
+
+        .input-group {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+
+        label {
+            font-size: 1.4rem;
+            font-weight: 500;
+            color: var(--light-gold);
+            letter-spacing: 0.5px;
+        }
+
+        input {
+            width: 100%;
+            max-width: 450px;
+            padding: 18px 25px;
+            border-radius: 50px;
+            border: 2px solid rgba(212, 175, 55, 0.3);
+            background: rgba(255, 255, 255, 0.08);
+            color: var(--white);
+            font-size: 1.2rem;
+            text-align: center;
+            transition: all 0.4s ease;
+            letter-spacing: 0.5px;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: var(--gold);
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
+            background: rgba(255, 255, 255, 0.12);
+        }
+
+        input::placeholder {
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .btn {
+            background: linear-gradient(135deg, var(--gold), #b8941f);
+            color: var(--deep-blue);
+            border: none;
+            padding: 18px 35px;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            box-shadow: 0 8px 20px rgba(212, 175, 55, 0.4);
+            letter-spacing: 0.5px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: 0.5s;
+        }
+
+        .btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 25px rgba(212, 175, 55, 0.6);
+        }
+
+        .btn:hover::before {
+            left: 100%;
+        }
+
+        /* Messages Section */
+        .messages-section {
+            display: none;
+            margin-bottom: 40px;
+        }
+
+        .section-title {
+            font-family: 'Amiri', serif;
+            font-size: 2.5rem;
+            color: var(--light-gold);
+            margin-bottom: 10px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 15%;
+            width: 70%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+        }
+
+        .refresh-btn {
+            margin-bottom: 30px;
+        }
+
+        .messages-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
+        }
+
+        .message-card {
+            background: rgba(26, 58, 95, 0.7);
+            backdrop-filter: blur(15px);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 15px 35px var(--shadow);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            min-height: 320px;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.8s ease forwards;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .message-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
+        }
+
+        .message-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        .message-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .message-card.selected {
+            border: 2px solid var(--gold);
+            box-shadow: 0 0 30px rgba(212, 175, 55, 0.5);
+        }
+
+        .message-card.selected::before {
+            transform: scaleX(1);
+        }
+
+        .message-card:nth-child(1) { animation-delay: 0.1s; }
+        .message-card:nth-child(2) { animation-delay: 0.2s; }
+        .message-card:nth-child(3) { animation-delay: 0.3s; }
+        .message-card:nth-child(4) { animation-delay: 0.4s; }
+        .message-card:nth-child(5) { animation-delay: 0.5s; }
+
+        .message-text {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: var(--cream);
+            margin-bottom: 20px;
+            flex-grow: 1;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            font-weight: 300;
+        }
+
+        .signature {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 15px;
+            font-style: italic;
+            color: var(--gold);
+            font-weight: 500;
+        }
+
+        .from-text {
+            font-size: 1rem;
+            opacity: 0.8;
+        }
+
+        .user-name {
+            font-size: 1.3rem;
+            color: var(--gold);
+            font-weight: 600;
+        }
+
+        .heart {
+            color: #ff6b6b;
+            animation: heartbeat 1.5s infinite;
+        }
+
+        .islamic-icon {
+            width: 70px;
+            height: 70px;
+            background: rgba(212, 175, 55, 0.15);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            margin-top: 15px;
+            animation: iconGlow 3s infinite alternate;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+        }
+
+        @keyframes iconGlow {
+            0% { box-shadow: 0 0 10px rgba(212, 175, 55, 0.3); }
+            100% { box-shadow: 0 0 20px rgba(212, 175, 55, 0.6); }
+        }
+
+        /* Selected Message Display */
+        .selected-message-section {
+            display: none;
+            background: rgba(26, 58, 95, 0.7);
+            backdrop-filter: blur(15px);
+            border-radius: 20px;
+            padding: 35px;
+            margin-bottom: 40px;
+            box-shadow: 0 15px 35px var(--shadow);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            position: relative;
+        }
+
+        .selected-message-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+        }
+
+        .selected-message {
+            font-size: 1.5rem;
+            line-height: 1.9;
+            color: var(--cream);
+            margin-bottom: 25px;
+            padding: 25px;
+            background: rgba(10, 25, 49, 0.4);
+            border-radius: 15px;
+            border-left: 4px solid var(--gold);
+            text-align: center;
+            font-weight: 300;
+        }
+
+        .signature-large {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+            font-style: italic;
+            color: var(--gold);
+            font-size: 1.4rem;
+        }
+
+        .from-text-large {
+            font-size: 1.1rem;
+            opacity: 0.8;
+        }
+
+        /* Share Section */
+        .share-section {
+            display: none;
+            background: rgba(26, 58, 95, 0.7);
+            backdrop-filter: blur(15px);
+            border-radius: 20px;
+            padding: 35px;
+            margin-bottom: 40px;
+            box-shadow: 0 15px 35px var(--shadow);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            position: relative;
+        }
+
+        .share-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+        }
+
+        .share-title {
+            font-size: 1.5rem;
+            color: var(--light-gold);
+            margin-bottom: 25px;
+            font-family: 'Amiri', serif;
+        }
+
+        .share-buttons {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 18px;
+        }
+
+        .share-btn {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 15px 25px;
+            border-radius: 50px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            border: none;
+            color: var(--white);
+            font-size: 1.1rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .share-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: 0.5s;
+        }
+
+        .whatsapp {
+            background: #25D366;
+        }
+
+        .facebook {
+            background: #3b5998;
+        }
+
+        .instagram {
+            background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+        }
+
+        .telegram {
+            background: #0088cc;
+        }
+
+        .copy {
+            background: var(--gold);
+            color: var(--deep-blue);
+        }
+
+        .share-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .share-btn:hover::before {
+            left: 100%;
+        }
+
+        /* Generated Link Section */
+        .generated-link-section {
+            display: none;
+            background: rgba(26, 58, 95, 0.7);
+            backdrop-filter: blur(15px);
+            border-radius: 20px;
+            padding: 35px;
+            margin-bottom: 40px;
+            box-shadow: 0 15px 35px var(--shadow);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            position: relative;
+        }
+
+        .generated-link-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+        }
+
+        .link-title {
+            font-size: 1.5rem;
+            color: var(--light-gold);
+            margin-bottom: 20px;
+            font-family: 'Amiri', serif;
+        }
+
+        .generated-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        .link-text {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 15px 20px;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            word-break: break-all;
+            flex-grow: 1;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        .copy-link-btn {
+            background: var(--gold);
+            color: var(--deep-blue);
+            border: none;
+            padding: 15px 25px;
+            border-radius: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
+        }
+
+        .copy-link-btn:hover {
+            background: #b8941f;
+            transform: translateY(-3px);
+        }
+
+        .link-chain {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            margin-top: 20px;
+            font-size: 1.3rem;
+            color: var(--light-gold);
+        }
+
+        .chain-icon {
+            animation: chainAnimation 2s infinite;
+        }
+
+        /* Date & Time */
+        .date-time {
+            background: rgba(26, 58, 95, 0.7);
+            backdrop-filter: blur(15px);
+            border-radius: 20px;
+            padding: 25px;
+            margin-bottom: 25px;
+            box-shadow: 0 15px 35px var(--shadow);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            position: relative;
+        }
+
+        .date-time::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+        }
+
+        .date-time-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+        }
+
+        .date-item {
+            text-align: center;
+            padding: 15px;
+            background: rgba(10, 25, 49, 0.4);
+            border-radius: 12px;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        .date-label {
+            font-size: 1rem;
+            opacity: 0.8;
+            margin-bottom: 8px;
+            color: var(--cream);
+        }
+
+        .date-value {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--light-gold);
+        }
+
+        .blessing-note {
+            font-size: 1.2rem;
+            color: var(--light-gold);
+            margin-top: 15px;
+            font-style: italic;
+            font-family: 'Amiri', serif;
+        }
+
+        /* Sound Control */
+        .sound-control {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            background: rgba(26, 58, 95, 0.9);
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+            z-index: 100;
+            font-size: 1.6rem;
+            transition: all 0.4s ease;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+        }
+
+        .sound-control:hover {
+            transform: scale(1.1);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes heartbeat {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+            100% { transform: scale(1); }
+        }
+
+        @keyframes chainAnimation {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-5px); }
+            100% { transform: translateY(0); }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.8rem;
+            }
+            
+            .messages-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .date-time-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .share-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .share-btn {
+                width: 85%;
+            }
+            
+            .generated-link {
+                flex-direction: column;
+            }
+            
+            .logo {
+                font-size: 3.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 2.3rem;
+            }
+            
+            .logo {
+                font-size: 3rem;
+            }
+            
+            .name-input-container, .message-card, .date-time, .share-section, .selected-message-section, .generated-link-section {
+                padding: 25px 20px;
+            }
+            
+            .message-text {
+                font-size: 1.1rem;
+            }
+            
+            .selected-message {
+                font-size: 1.3rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Background Pattern -->
+    <div class="background-pattern"></div>
+    
+    <!-- Animated Background Elements -->
+    <div class="floating-elements" id="floatingElements"></div>
+
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <div class="logo-container">
+                <div class="logo-backdrop"></div>
+                <div class="logo">🌙</div>
+            </div>
+            <h1>Jummah Mubarak</h1>
+            <p class="subtitle">Create beautiful Jummah blessings to share with everyone</p>
+            <p class="subtitle">May this blessed Friday bring peace to your heart</p>
+        </div>
+
+        <!-- Name Input Section -->
+        <div class="name-input-container">
+            <div class="input-group">
+                <label for="userName">Enter Your Beautiful Name</label>
+                <input type="text" id="userName" placeholder="Your name here">
+                <button class="btn" id="generateBtn">Generate Blessings</button>
+            </div>
+        </div>
+
+        <!-- Messages Section -->
+        <div class="messages-section" id="messagesSection">
+            <h2 class="section-title">Choose Your Favorite Blessing</h2>
+            <p class="subtitle">Click on a message to select it</p>
+            
+            <button class="btn refresh-btn" id="refreshBtn">Refresh Messages</button>
+            
+            <div class="messages-container" id="messagesContainer">
+                <!-- Messages will be generated here -->
+            </div>
+        </div>
+
+        <!-- Selected Message Display -->
+        <div class="selected-message-section" id="selectedMessageSection">
+            <h2 class="section-title">Your Selected Blessing</h2>
+            <div class="selected-message" id="selectedMessage">
+                <!-- Selected message will appear here -->
+            </div>
+            <div class="signature-large" id="signatureLarge">
+                <!-- Signature will appear here -->
+            </div>
+            <button class="btn" id="generateLinkBtn">Generate Shareable Link</button>
+        </div>
+
+        <!-- Share Section -->
+        <div class="share-section" id="shareSection">
+            <div class="share-title">Share Your Blessing</div>
+            <div class="share-buttons">
+                <button class="share-btn whatsapp" id="whatsappShare">
+                    <i class="fab fa-whatsapp"></i>
+                    <span>WhatsApp</span>
+                </button>
+                <button class="share-btn facebook" id="facebookShare">
+                    <i class="fab fa-facebook-f"></i>
+                    <span>Facebook</span>
+                </button>
+                <button class="share-btn instagram" id="instagramShare">
+                    <i class="fab fa-instagram"></i>
+                    <span>Instagram</span>
+                </button>
+                <button class="share-btn telegram" id="telegramShare">
+                    <i class="fab fa-telegram"></i>
+                    <span>Telegram</span>
+                </button>
+                <button class="share-btn copy" id="copyLink">
+                    <i class="fas fa-copy"></i>
+                    <span>Copy Text</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Generated Link Section -->
+        <div class="generated-link-section" id="generatedLinkSection">
+            <div class="link-title">Your Shareable Link</div>
+            <div class="generated-link">
+                <div class="link-text" id="generatedLinkText">https://jummahwishes.com/blessing/12345</div>
+                <button class="copy-link-btn" id="copyLinkBtn">
+                    <i class="fas fa-copy"></i>
+                </button>
+            </div>
+            <div class="link-chain">
+                <span class="chain-icon">⛓️‍💥</span>
+                <span>Share this link to continue the chain of blessings!</span>
+                <span class="chain-icon">⛓️‍💥</span>
+            </div>
+        </div>
+
+        <!-- Date & Time -->
+        <div class="date-time">
+            <div class="date-time-grid">
+                <div class="date-item">
+                    <div class="date-label">Islamic Date</div>
+                    <div class="date-value" id="islamicDate">14 Ramadan 1445</div>
+                </div>
+                <div class="date-item">
+                    <div class="date-label">English Date</div>
+                    <div class="date-value" id="englishDate">April 5, 2024</div>
+                </div>
+                <div class="date-item">
+                    <div class="date-label">Current Time</div>
+                    <div class="date-value" id="currentTime">12:00:00 PM</div>
+                </div>
+            </div>
+            <div class="blessing-note">May Allah bless your Friday with peace and tranquility 🌸</div>
+        </div>
+    </div>
+
+    <!-- Sound Control -->
+    <div class="sound-control" id="soundControl">
+        <span id="soundIcon">🔊</span>
+    </div>
+
+    <!-- Audio Element -->
+    <audio id="naat" loop>
+        <!-- In a real implementation, you would link to an actual naat file -->
+        <!-- For this demo, we'll simulate the audio with JavaScript -->
+    </audio>
+
+    <script>
+        // DOM Elements
+        const userNameInput = document.getElementById('userName');
+        const generateBtn = document.getElementById('generateBtn');
+        const messagesSection = document.getElementById('messagesSection');
+        const messagesContainer = document.getElementById('messagesContainer');
+        const refreshBtn = document.getElementById('refreshBtn');
+        const selectedMessageSection = document.getElementById('selectedMessageSection');
+        const selectedMessage = document.getElementById('selectedMessage');
+        const signatureLarge = document.getElementById('signatureLarge');
+        const generateLinkBtn = document.getElementById('generateLinkBtn');
+        const shareSection = document.getElementById('shareSection');
+        const generatedLinkSection = document.getElementById('generatedLinkSection');
+        const generatedLinkText = document.getElementById('generatedLinkText');
+        const copyLinkBtn = document.getElementById('copyLinkBtn');
+        const copyLink = document.getElementById('copyLink');
+        const islamicDate = document.getElementById('islamicDate');
+        const englishDate = document.getElementById('englishDate');
+        const currentTime = document.getElementById('currentTime');
+        const soundControl = document.getElementById('soundControl');
+        const soundIcon = document.getElementById('soundIcon');
+        const naat = document.getElementById('naat');
+        const floatingElements = document.getElementById('floatingElements');
+
+        // Beautiful Jummah Messages for everyone
+        const messageTemplates = [
+            "On this blessed Friday, may the divine light of Allah illuminate your path, fill your heart with serenity, and grant you the tranquility that comes from sincere devotion and prayer.",
+            
+            "As the sacred day of Jummah graces us once again, may your soul find solace in remembrance of the Almighty, your heart be filled with boundless gratitude, and your spirit be rejuvenated with hope and faith.",
+            
+            "May the profound blessings of this holy Jummah descend upon you like gentle rain, washing away all worries, healing every wound, and filling your life with divine mercy, peace, and endless blessings.",
+            
+            "On this day of congregational prayers and spiritual reflection, may Allah accept your sincere supplications, forgive your shortcomings, and envelop you in His infinite compassion and grace.",
+            
+            "As the melodious call to prayer echoes through the air, may it remind you of Allah's eternal presence, awaken your soul to higher purpose, and fill your being with celestial peace and contentment.",
+            
+            "May this Jummah be a sanctuary for your weary soul, a balm for your troubled heart, and a beacon of divine light guiding you through life's challenges with unwavering faith and inner peace.",
+            
+            "On this sacred day when prayers are answered and mercy descends, may you feel the comforting embrace of Allah's love, experience profound spiritual elevation, and receive blessings beyond measure.",
+            
+            "As you bow in prayer this Jummah, may your connection with the Divine deepen, your faith strengthen, and your heart overflow with the sweet serenity that comes from complete submission to Allah's will.",
+            
+            "May the spiritual energy of this blessed Friday cleanse your soul of all negativity, fill your mind with peaceful thoughts, and illuminate your path with the radiant light of guidance and truth.",
+            
+            "On this day of collective worship and divine proximity, may your prayers ascend to the heavens, your sins be washed away, and your life be adorned with the beautiful ornaments of faith and righteousness.",
+            
+            "As the sun sets on this holy Jummah, may it take with it all your anxieties and leave behind only the peaceful certainty of Allah's mercy, the comforting warmth of His love, and the hopeful promise of His grace.",
+            
+            "May the sacred atmosphere of this Jummah permeate your entire being, bringing calm to your restless soul, clarity to your confused mind, and contentment to your yearning heart.",
+            
+            "On this day when the gates of heaven are open wide, may your sincere repentance be accepted, your heartfelt prayers be answered, and your soul be filled with the sweet fragrance of divine forgiveness and mercy.",
+            
+            "As you recite the holy verses and remember the Almighty on this blessed Friday, may your heart find the peace it seeks, your soul discover the purpose it yearns for, and your life be blessed with divine guidance and protection.",
+            
+            "May this Jummah be a spiritual oasis in the desert of your life, quenching your thirst for meaning, providing shade from worldly worries, and nourishing your soul with the eternal waters of faith and devotion."
+        ];
+
+        // Variables
+        let currentUserName = "";
+        let selectedMessageText = "";
+
+        // Initialize the application
+        document.addEventListener('DOMContentLoaded', function() {
+            // Create animated background
+            createFloatingElements();
+            
+            // Set up event listeners
+            generateBtn.addEventListener('click', generateMessages);
+            refreshBtn.addEventListener('click', generateMessages);
+            generateLinkBtn.addEventListener('click', generateShareableLink);
+            soundControl.addEventListener('click', toggleSound);
+            copyLinkBtn.addEventListener('click', copyGeneratedLink);
+            copyLink.addEventListener('click', copyMessageText);
+            
+            // Share button event listeners
+            whatsappShare.addEventListener('click', shareOnWhatsApp);
+            facebookShare.addEventListener('click', shareOnFacebook);
+            instagramShare.addEventListener('click', shareOnInstagram);
+            telegramShare.addEventListener('click', shareOnTelegram);
+            
+            // Start date/time updates
+            updateDateTime();
+            setInterval(updateDateTime, 1000);
+            
+            // Check if we have a shared blessing in URL
+            checkSharedBlessing();
+            
+            // Try to autoplay naat (muted by default for browser restrictions)
+            try {
+                naat.muted = true;
+                naat.play().then(() => {
+                    // If autoplay succeeds, unmute after user interaction
+                    document.body.addEventListener('click', function() {
+                        naat.muted = false;
+                    }, { once: true });
+                });
+            } catch (error) {
+                console.log('Audio autoplay failed:', error);
+            }
+        });
+
+        // Generate Messages
+        function generateMessages() {
+            const userName = userNameInput.value.trim();
+            
+            if (!userName) {
+                alert('Please enter your name to generate blessings.');
+                return;
+            }
+            
+            currentUserName = userName;
+            
+            // Show messages section
+            messagesSection.style.display = 'block';
+            
+            // Clear previous messages
+            messagesContainer.innerHTML = '';
+            
+            // Select 5 random messages
+            const selectedMessages = getRandomMessages(5);
+            
+            // Create message cards
+            selectedMessages.forEach((message, index) => {
+                const messageCard = document.createElement('div');
+                messageCard.className = 'message-card';
+                messageCard.dataset.index = index;
+                
+                messageCard.innerHTML = `
+                    <div class="message-text">${message}</div>
+                    <div class="signature">
+                        <span class="from-text">From</span>
+                        <div class="user-name">${userName}</div>
+                        <div class="heart">❤️</div>
+                    </div>
+                    <div class="islamic-icon">🕌</div>
+                `;
+                
+                // Add click event to select message
+                messageCard.addEventListener('click', function() {
+                    // Remove selected class from all cards
+                    document.querySelectorAll('.message-card').forEach(card => {
+                        card.classList.remove('selected');
+                    });
+                    
+                    // Add selected class to clicked card
+                    this.classList.add('selected');
+                    
+                    // Store selected message
+                    selectedMessageText = message;
+                    
+                    // Show selected message section
+                    selectedMessage.textContent = message;
+                    signatureLarge.innerHTML = `
+                        <span class="from-text-large">From</span>
+                        <div class="user-name">${userName}</div>
+                        <div class="heart">❤️</div>
+                    `;
+                    selectedMessageSection.style.display = 'block';
+                    
+                    // Scroll to selected message section
+                    selectedMessageSection.scrollIntoView({ behavior: 'smooth' });
+                });
+                
+                messagesContainer.appendChild(messageCard);
+            });
+            
+            // Scroll to messages section
+            messagesSection.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Get Random Messages
+        function getRandomMessages(count) {
+            const shuffled = [...messageTemplates].sort(() => 0.5 - Math.random());
+            return shuffled.slice(0, count);
+        }
+
+        // Generate Shareable Link
+        function generateShareableLink() {
+            if (!selectedMessageText) {
+                alert('Please select a message first.');
+                return;
+            }
+            
+            // Create a unique ID for this blessing
+            const blessingId = generateUniqueId();
+            
+            // Store the blessing in localStorage
+            const blessingData = {
+                message: selectedMessageText,
+                userName: currentUserName,
+                timestamp: new Date().getTime()
+            };
+            
+            localStorage.setItem(`blessing_${blessingId}`, JSON.stringify(blessingData));
+            
+            // Generate the shareable link
+            const baseUrl = window.location.origin + window.location.pathname;
+            const shareableLink = `${baseUrl}?blessing=${blessingId}`;
+            
+            // Display the link
+            generatedLinkText.textContent = shareableLink;
+            generatedLinkSection.style.display = 'block';
+            shareSection.style.display = 'block';
+            
+            // Scroll to generated link section
+            generatedLinkSection.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Generate Unique ID
+        function generateUniqueId() {
+            return 'bless_' + Math.random().toString(36).substr(2, 9) + '_' + Date.now().toString(36);
+        }
+
+        // Check for Shared Blessing
+        function checkSharedBlessing() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const blessingId = urlParams.get('blessing');
+            
+            if (blessingId) {
+                // Retrieve the blessing from localStorage
+                const blessingData = localStorage.getItem(`blessing_${blessingId}`);
+                
+                if (blessingData) {
+                    const blessing = JSON.parse(blessingData);
+                    
+                    // Show the shared blessing
+                    selectedMessage.textContent = blessing.message;
+                    signatureLarge.innerHTML = `
+                        <span class="from-text-large">From</span>
+                        <div class="user-name">${blessing.userName}</div>
+                        <div class="heart">❤️</div>
+                    `;
+                    selectedMessageSection.style.display = 'block';
+                    
+                    // Pre-fill the user name field with the original user's name
+                    userNameInput.value = blessing.userName;
+                    
+                    // Scroll to the selected message section
+                    setTimeout(() => {
+                        selectedMessageSection.scrollIntoView({ behavior: 'smooth' });
+                    }, 500);
+                }
+            }
+        }
+
+        // Update Date and Time
+        function updateDateTime() {
+            const now = new Date();
+            
+            // English Date
+            const options = { year: 'numeric', month: 'long', day: 'numeric' };
+            englishDate.textContent = now.toLocaleDateString('en-US', options);
+            
+            // Current Time
+            currentTime.textContent = now.toLocaleTimeString('en-US');
+            
+            // Islamic Date (simplified calculation)
+            islamicDate.textContent = calculateIslamicDate(now);
+        }
+
+        // Simplified Islamic Date Calculation
+        function calculateIslamicDate(gregorianDate) {
+            // This is a simplified version - in a real app you would use a proper Hijri calendar library
+            const islamicMonths = [
+                'Muharram', 'Safar', 'Rabi al-Awwal', 'Rabi al-Thani', 
+                'Jumada al-Awwal', 'Jumada al-Thani', 'Rajab', 'Sha\'ban', 
+                'Ramadan', 'Shawwal', 'Dhu al-Qi\'dah', 'Dhu al-Hijjah'
+            ];
+            
+            // Approximate calculation (not accurate for production)
+            const islamicYear = 1445 + Math.floor((gregorianDate.getFullYear() - 2023) * 0.97);
+            const islamicMonth = islamicMonths[gregorianDate.getMonth()];
+            const islamicDay = gregorianDate.getDate() % 29 || 29;
+            
+            return `${islamicDay} ${islamicMonth} ${islamicYear}`;
+        }
+
+        // Toggle Sound
+        function toggleSound() {
+            if (naat.paused) {
+                // Try to play the audio
+                naat.play().then(() => {
+                    soundIcon.textContent = '🔊';
+                }).catch(error => {
+                    console.log('Audio play failed:', error);
+                    // Show message to user
+                    alert('Please interact with the page first to enable audio, or check your browser settings.');
+                });
+            } else {
+                naat.pause();
+                soundIcon.textContent = '🔇';
+            }
+        }
+
+        // Create Floating Background Elements
+        function createFloatingElements() {
+            const elementCount = 20;
+            
+            for (let i = 0; i < elementCount; i++) {
+                const element = document.createElement('div');
+                element.className = 'floating-element';
+                
+                // Random size and position
+                const size = 8 + Math.random() * 25;
+                element.style.width = `${size}px`;
+                element.style.height = `${size}px`;
+                element.style.left = `${Math.random() * 100}%`;
+                element.style.top = `${Math.random() * 100}%`;
+                
+                // Random animation duration
+                element.style.animationDuration = `${15 + Math.random() * 30}s`;
+                
+                floatingElements.appendChild(element);
+            }
+        }
+
+        // Share Functions
+        function shareOnWhatsApp() {
+            const shareText = `Jummah Mubarak! 🌙\n\n${selectedMessageText}\n\nFrom: ${currentUserName}\n\nShare your own blessing: ${generatedLinkText.textContent}`;
+            window.open(`https://wa.me/?text=${encodeURIComponent(shareText)}`, '_blank');
+        }
+
+        function shareOnFacebook() {
+            const shareText = `Jummah Mubarak! 🌙\n\n${selectedMessageText}\n\nFrom: ${currentUserName}`;
+            window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(generatedLinkText.textContent)}&quote=${encodeURIComponent(shareText)}`, '_blank');
+        }
+
+        function shareOnInstagram() {
+            alert('To share on Instagram, please take a screenshot of your blessing and post it in your Instagram story or feed. You can include the link in your bio!');
+        }
+
+        function shareOnTelegram() {
+            const shareText = `Jummah Mubarak! 🌙\n\n${selectedMessageText}\n\nFrom: ${currentUserName}\n\nShare your own blessing: ${generatedLinkText.textContent}`;
+            window.open(`https://t.me/share/url?url=${encodeURIComponent(generatedLinkText.textContent)}&text=${encodeURIComponent(shareText)}`, '_blank');
+        }
+
+        // Copy Generated Link
+        function copyGeneratedLink() {
+            navigator.clipboard.writeText(generatedLinkText.textContent).then(() => {
+                // Change button text temporarily
+                const originalText = copyLinkBtn.innerHTML;
+                copyLinkBtn.innerHTML = '<i class="fas fa-check"></i>';
+                
+                setTimeout(() => {
+                    copyLinkBtn.innerHTML = originalText;
+                }, 2000);
+            }).catch(err => {
+                console.error('Failed to copy: ', err);
+                // Fallback for older browsers
+                const textArea = document.createElement('textarea');
+                textArea.value = generatedLinkText.textContent;
+                document.body.appendChild(textArea);
+                textArea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textArea);
+                
+                // Change button text temporarily
+                const originalText = copyLinkBtn.innerHTML;
+                copyLinkBtn.innerHTML = '<i class="fas fa-check"></i>';
+                
+                setTimeout(() => {
+                    copyLinkBtn.innerHTML = originalText;
+                }, 2000);
+            });
+        }
+
+        // Copy Message Text
+        function copyMessageText() {
+            if (!selectedMessageText) {
+                alert('Please select a message first.');
+                return;
+            }
+            
+            const fullMessage = `${selectedMessageText}\n\nFrom: ${currentUserName}`;
+            
+            navigator.clipboard.writeText(fullMessage).then(() => {
+                // Change button text temporarily
+                const originalText = copyLink.innerHTML;
+                copyLink.innerHTML = '<i class="fas fa-check"></i> Copied!';
+                
+                setTimeout(() => {
+                    copyLink.innerHTML = originalText;
+                }, 2000);
+            }).catch(err => {
+                console.error('Failed to copy: ', err);
+                // Fallback for older browsers
+                const textArea = document.createElement('textarea');
+                textArea.value = fullMessage;
+                document.body.appendChild(textArea);
+                textArea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textArea);
+                
+                // Change button text temporarily
+                const originalText = copyLink.innerHTML;
+                copyLink.innerHTML = '<i class="fas fa-check"></i> Copied!';
+                
+                setTimeout(() => {
+                    copyLink.innerHTML = originalText;
+                }, 2000);
+            });
+        }
+    </script>
+</body>
+</html>
